@@ -26,4 +26,6 @@ public class EmployeeDTO implements Serializable{
 	private String password;
 	
 	private String email;
+	
+	private String role;
 }

@@ -54,6 +54,7 @@ public class EmployeeEntity implements Serializable, UserDetails{
 	private String email;
 
 	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "role")
 	private Role role;
 	
 	@Override

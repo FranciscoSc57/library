@@ -22,7 +22,7 @@ public class EmployeeMapper {
 			employeeDTO.setActive(employeeEntity.isActive());
 			employeeDTO.setEmail(employeeEntity.getEmail());
 			employeeDTO.setPassword(employeeEntity.getPassword());
-			
+			employeeDTO.setRole(employeeEntity.getRole().toString());
 			return employeeDTO;
 		}catch (Exception e) {
 			log.error("Ocurrio un problema al mapear entidad Empleado a DTO: {}",e);
