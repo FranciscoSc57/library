@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthResponse {
+public class AuthResponse extends ResponseVO{
 
+	private static final long serialVersionUID = -663488585796761387L;
 	private String token;
 }

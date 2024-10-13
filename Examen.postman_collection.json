@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d1ce4b8c-f3a2-40f7-b3a6-a0b188767849",
+		"_postman_id": "b7f6ae1c-ba4c-41be-a16c-f8477973cd17",
 		"name": "Examen",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32663134"
@@ -17,7 +17,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -53,7 +53,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -103,7 +103,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODQwMTY2LCJleHAiOjE3Mjg4NDE2MDZ9.5fP0nHQx5Vwg5qsx0gLpG8ukepcW7Yv2OGUertl-Yy4",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -145,7 +145,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODQwMTY2LCJleHAiOjE3Mjg4NDE2MDZ9.5fP0nHQx5Vwg5qsx0gLpG8ukepcW7Yv2OGUertl-Yy4",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -184,7 +184,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -222,6 +222,20 @@
 			"item": [
 				{
 					"name": "Registrar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"console.log(jsonData.token);\r",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -254,6 +268,20 @@
 				},
 				{
 					"name": "Get Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"console.log(jsonData.token);\r",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -300,7 +328,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -333,7 +361,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -366,7 +394,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NTMwLCJleHAiOjE3Mjg4NDA5NzB9.VW7iMC1tFgMN3Dwcc3gCpyIBXcpFH70f-jxGMrQwuBg",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]

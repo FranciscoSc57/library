@@ -1,4 +1,8 @@
-Paso 1:
+Paso 1: 
+	Se debe importar Coleccion y Environment de Postman para correcta ejecucion de pruebas
+	El Token se guarda en variable entorno despues de cada ejecucion exitosa de Registro o Autenciacion
+
+Paso 2:
 	Se debe realizar el registro del usuario con el Endpoitn /api/v1/library/auth/registrar que se encuentra en carpeta
 	Auth dentro de la coleccion de Postman
 	

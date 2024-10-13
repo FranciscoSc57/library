@@ -22,7 +22,7 @@ public class AuthController {
 
 	@PostMapping("/registrar")
 	public ResponseEntity<AuthResponse> registrar(@RequestBody EmployeeDTO request){
-		return ResponseEntity.ok(authService.registrar(request));
+		return authService.registrar(request);
 	}
 	
 	@GetMapping("/autenticar")

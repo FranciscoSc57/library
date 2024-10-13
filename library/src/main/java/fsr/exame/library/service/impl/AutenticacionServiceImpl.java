@@ -1,6 +1,10 @@
 package fsr.exame.library.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import fsr.exame.library.config.JwtService;
@@ -29,7 +33,19 @@ public class AutenticacionServiceImpl implements AutenticacionService{
 	private AuthenticationManager authenticationManager;
 	
 	@Override
-	public AuthResponse registrar(EmployeeDTO registroRequest) {
+	public ResponseEntity<AuthResponse> registrar(EmployeeDTO registroRequest) {
+		Optional<EmployeeEntity> employeeEntityExist = employeeRepository.findByEmail(registroRequest.getEmail());
+		
+		AuthResponse response = new AuthResponse();
+		
+		if(employeeEntityExist.isPresent()) {
+			response.setMensaje("El Email ya existe: "+registroRequest.getEmail());
+			return new ResponseEntity<>(
+					response,
+					HttpStatus.CONFLICT
+					);
+		}
+		
 		EmployeeEntity user = EmployeeEntity.builder()
 				.name(registroRequest.getName())
 				.lastName(registroRequest.getLastName())
@@ -39,7 +55,13 @@ public class AutenticacionServiceImpl implements AutenticacionService{
 				.build();
 		employeeRepository.save(user);
 		String jwtToken = jwtService.generateToken(user);
-		return AuthResponse.builder().token(jwtToken).build();
+		
+		response.setToken(jwtToken);
+		response.setMensaje("Admin registrado exitosamente");
+		return new ResponseEntity<>(
+				response,
+				HttpStatus.CREATED
+				);
 	}
 
 	@Override
