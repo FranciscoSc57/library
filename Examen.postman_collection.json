@@ -13,18 +13,27 @@
 					"name": "GetAllBooks",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/book/all",
+							"raw": "http://localhost:8080/api/v1/library/book/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"library",
 								"book",
 								"all"
@@ -40,7 +49,14 @@
 					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [
@@ -61,17 +77,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/library/book/isbn/A1",
+							"raw": "http://localhost:8080/api/v1/library/book/isbn/A2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"library",
 								"book",
 								"isbn",
-								"A1"
+								"A2"
 							]
 						}
 					},
@@ -80,6 +98,16 @@
 				{
 					"name": "CreateBook",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODQwMTY2LCJleHAiOjE3Mjg4NDE2MDZ9.5fP0nHQx5Vwg5qsx0gLpG8ukepcW7Yv2OGUertl-Yy4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -92,42 +120,18 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/library/book",
+							"raw": "http://localhost:8080/api/v1/library/book/registrar",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"library",
-								"book"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetBookByCertainDate",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/library/book/fecha?fecha=2024-10-11",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
+								"api",
+								"v1",
 								"library",
 								"book",
-								"fecha"
-							],
-							"query": [
-								{
-									"key": "fecha",
-									"value": "2024-10-11"
-								}
+								"registrar"
 							]
 						}
 					},
@@ -141,7 +145,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3ODYwNzgsImV4cCI6MTcyODc4NjEzOH0.jWmnLIc1rx_uDYw_4vxdgY4kOmejWD99v85YYOaFaZI",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODQwMTY2LCJleHAiOjE3Mjg4NDE2MDZ9.5fP0nHQx5Vwg5qsx0gLpG8ukepcW7Yv2OGUertl-Yy4",
 									"type": "string"
 								}
 							]
@@ -149,13 +153,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/book/author?author=Mariano Sigman",
+							"raw": "http://localhost:8080/api/v1/library/book/author?author=Mariano Sigman",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"library",
 								"book",
 								"author"
@@ -169,6 +175,117 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetBookByCertainDate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/library/book/fecha?fecha=2024-10-08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library",
+								"book",
+								"fecha"
+							],
+							"query": [
+								{
+									"key": "fecha",
+									"value": "2024-10-08"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Francisco\",\r\n    \"lastName\": \"Sanchez Reyes\",\r\n    \"password\": \"holamundo\",\r\n    \"email\": \"holamundo@gmail.com\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/library/auth/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library",
+								"auth",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"holamundo\",\r\n    \"email\": \"holamundo@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/library/auth/autenticar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library",
+								"auth",
+								"autenticar"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -178,16 +295,28 @@
 				{
 					"name": "GetAllEmployees",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/employee/all",
+							"raw": "http://localhost:8080/api/v1/library/employee/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"library",
 								"employee",
 								"all"
@@ -199,19 +328,31 @@
 				{
 					"name": "GetEmployeeById",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NzQyLCJleHAiOjE3Mjg4NDExODJ9.c197qniSpa9ruHlSkg1C6iUIyCbwIcnR3lYQgYaHRBI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/employee/all",
+							"raw": "http://localhost:8080/api/v1/library/employee/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"library",
 								"employee",
-								"all"
+								"1"
 							]
 						}
 					},
@@ -220,11 +361,21 @@
 				{
 					"name": "CreateEmployee",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJob2xhbXVuZG9AZ21haWwuY29tIiwiaWF0IjoxNzI4ODM5NTMwLCJleHAiOjE3Mjg4NDA5NzB9.VW7iMC1tFgMN3Dwcc3gCpyIBXcpFH70f-jxGMrQwuBg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"isbn\": \"A2\",\r\n    \"name\": \"La Vida Secreta de la Mente\",\r\n    \"author\": \"Mariano Sigman\",\r\n    \"publishedDate\": \"2024-10-12\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Francisco\",\r\n    \"lastName\": \"Sanchez Reyes\",\r\n    \"password\": \"holamundo\",\r\n    \"email\": \"holamundo@gmail.com\",\r\n    \"active\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -232,15 +383,18 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/library/book",
+							"raw": "http://localhost:8080/api/v1/library/employee/registrar",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"library",
-								"book"
+								"employee",
+								"registrar"
 							]
 						}
 					},
