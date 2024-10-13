@@ -17,6 +17,7 @@ import fsr.exame.library.model.ResponseGeneric;
 import fsr.exame.library.model.ResponseVO;
 import fsr.exame.library.repository.BookRepository;
 import fsr.exame.library.service.BookService;
+import fsr.exame.library.service.LogAspect;
 import fsr.exame.library.utils.ValidateRequest;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class BookServiceImpl implements BookService{
 	private final BookRepository bookRepository;
 	
 	@Override
+	@LogAspect
 	public ResponseEntity<ResponseGeneric<List<BookDTO>>> getAllBooks() {
 		log.info("Obteniendo Todos los Libros");
 		List<BookDTO> allBooks = new ArrayList<BookDTO>();
@@ -68,6 +70,7 @@ public class BookServiceImpl implements BookService{
 		
 	}
 
+	@LogAspect
 	@Override
 	public ResponseEntity<ResponseGeneric<BookDTO>> getBookByISBN(String isbn) {
 		log.info("Obtener Libro: "+isbn);
@@ -104,6 +107,7 @@ public class BookServiceImpl implements BookService{
 		}
 	}
 
+	@LogAspect
 	@Override
 	@Transactional
 	public ResponseEntity<ResponseVO> createBook(BookDTO bookDTO) {
@@ -162,6 +166,7 @@ public class BookServiceImpl implements BookService{
 		}
 	}
 
+	@LogAspect
 	@Override
 	public ResponseEntity<ResponseGeneric<List<BookDTO>>> getBookByAuthor(String author) {
 		log.info("Obtener Libro by Autor: "+author);
@@ -199,6 +204,7 @@ public class BookServiceImpl implements BookService{
 		}
 	}
 	
+	@LogAspect
 	@Override
 	public ResponseEntity<ResponseGeneric<List<BookDTO>>> getBookByCertainDate(LocalDate fecha) {
 		log.info("Obtener Libro by Fecha Determinada: "+fecha);

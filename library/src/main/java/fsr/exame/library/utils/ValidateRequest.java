@@ -34,9 +34,6 @@ public class ValidateRequest {
 		log.info("Validando datos Request Empleados");
 		List<String> required = new ArrayList<String>();
 		
-		if(employeeDTO.getId() == null || employeeDTO.getId() == 0) {
-			required.add("ID del empleado no debe ser nulo y mayor a 0");
-		}
 		if(employeeDTO.getName() == null || employeeDTO.getName().trim().isEmpty()) {
 			required.add("Nombre del empleado no debe ser nulo ni vacio");
 		}

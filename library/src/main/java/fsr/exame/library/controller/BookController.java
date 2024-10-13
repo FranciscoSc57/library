@@ -44,7 +44,7 @@ public class BookController {
 		return bookService.getBookByISBN(isbn);
 	}
 	
-	@PostMapping("")
+	@PostMapping("/registrar")
 	public ResponseEntity<ResponseVO> createBook(@RequestBody BookDTO bookDTO){
 		log.info("Crear Libro");
 		

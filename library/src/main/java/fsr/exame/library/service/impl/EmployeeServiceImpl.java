@@ -16,6 +16,7 @@ import fsr.exame.library.model.ResponseGeneric;
 import fsr.exame.library.model.ResponseVO;
 import fsr.exame.library.repository.EmployeeRepository;
 import fsr.exame.library.service.EmployeeService;
+import fsr.exame.library.service.LogAspect;
 import fsr.exame.library.utils.ValidateRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	private final EmployeeRepository employeeRepository;
 	
+	@LogAspect
 	@Override
 	public ResponseEntity<ResponseGeneric<List<EmployeeDTO>>> getAllEmployees() {
 		List<EmployeeDTO> listEmpleados = new ArrayList<EmployeeDTO>();
@@ -60,6 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		}
 	}
 
+	@LogAspect
 	@Override
 	public ResponseEntity<ResponseGeneric<EmployeeDTO>> getEmployeeById(Long id) {
 		log.info("Obtener Empleado: "+id);
@@ -96,6 +99,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		}
 	}
 
+	@LogAspect
 	@Override
 	public ResponseEntity<ResponseVO> addEmployee(EmployeeDTO employee) {
 		log.info("Guardando Empleado");
@@ -113,10 +117,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 						);
 				}
 				
-			Optional<EmployeeEntity> employeeEntityExist = employeeRepository.findById(employee.getId());
+			Optional<EmployeeEntity> employeeEntityExist = employeeRepository.findByEmail(employee.getEmail());
 			
 			if(employeeEntityExist.isPresent()) {
-				response.setMensaje("El Empleado ya existe: "+employee.getId());
+				response.setMensaje("El Email ya existe: "+employee.getEmail());
 				return new ResponseEntity<>(
 						response,
 						HttpStatus.CONFLICT
@@ -135,7 +139,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 					);
 			
 		}catch(Exception e) {
-			log.error("Ocurrio un problema al crear el Empleado");
+			log.error("Ocurrio un problema al crear el Empleado: {}",e);
 			response.setMensaje("Ocurrio un problema al crear el Empleado");
 			return new ResponseEntity<>(
 					response,

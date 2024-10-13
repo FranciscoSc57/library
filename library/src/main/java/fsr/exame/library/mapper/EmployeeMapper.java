@@ -2,6 +2,7 @@ package fsr.exame.library.mapper;
 
 import org.springframework.stereotype.Component;
 
+import fsr.exame.library.constant.Role;
 import fsr.exame.library.entity.EmployeeEntity;
 import fsr.exame.library.model.EmployeeDTO;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,8 @@ public class EmployeeMapper {
 			employeeDTO.setName(employeeEntity.getName());
 			employeeDTO.setLastName(employeeEntity.getLastName());
 			employeeDTO.setActive(employeeEntity.isActive());
+			employeeDTO.setEmail(employeeEntity.getEmail());
+			employeeDTO.setPassword(employeeEntity.getPassword());
 			
 			return employeeDTO;
 		}catch (Exception e) {
@@ -30,12 +33,12 @@ public class EmployeeMapper {
 	public static EmployeeEntity employeeDTOToEntity(EmployeeDTO employeeDTO) {
 		EmployeeEntity employeeEntity = new EmployeeEntity(); 
 		try {
-			employeeEntity.setId(employeeDTO.getId());
 			employeeEntity.setName(employeeDTO.getName());
 			employeeEntity.setLastName(employeeDTO.getLastName());
 			employeeEntity.setActive(employeeDTO.isActive());
 			employeeEntity.setEmail(employeeDTO.getEmail());
 			employeeEntity.setPassword(employeeDTO.getPassword());
+			employeeEntity.setRole(Role.USER);
 			return employeeEntity;
 		}catch (Exception e) {
 			log.error("Ocurrio un problema al mapear DTO Empleado a Entidad: {}",e);

@@ -39,7 +39,7 @@ public class EmployeesController {
 		return employeeService.getEmployeeById(id);
 	}
 	
-	@PostMapping
+	@PostMapping(path = "/registrar")
 	public ResponseEntity<ResponseVO> addEmployee(@RequestBody EmployeeDTO employee){
 		log.info("Guardando empleado");
 		
